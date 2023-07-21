@@ -76,6 +76,10 @@ function enterKey(e) {
   }
 }
 
+// function openWebpage(url) {
+//   window.open(url, "_blank");
+// }
+
 function commander(cmd) {
   switch (cmd.toLowerCase()) {
     case "help":
@@ -97,6 +101,36 @@ function commander(cmd) {
         window.open('https://youtu.be/xMPkgtOxlfo');
       }, 1000); 
       break;
+      case "hfgke4":
+      addLine("Here you go!", "color2", 80);
+      setTimeout(function() {
+        window.open('https://youtu.be/dQw4w9WgXcQ?si=HfmYE9jgmWmVpSUo');
+      }, 1000); 
+      break;
+      case "ctf":
+      loopLines(ctf, "color2 margin", 80);
+      break;
+      case "whatis":
+      loopLines(whatis, "color2 margin", 80);
+      break;
+      case "howis":
+      loopLines(howis, "color2 margin", 80);
+      break;
+      case "hints":
+      loopLines(hints, "color2 margin", 80);
+      break;
+      case "que1":
+      loopLines(que1, "color2 margin", 80);
+      break;
+      case "que2":
+      loopLines(que2, "color2 margin", 80);
+      break;
+      case "que3":
+      loopLines(que3, "color2 margin", 80);
+      break;
+      case "questions":
+      loopLines(questions, "color2 margin", 80);
+      break;
     case "social":
       loopLines(social, "color2 margin", 80);
       break;
@@ -115,9 +149,6 @@ function commander(cmd) {
       loopLines(commands, "color2", 80);
       addLine("<br>", "command", 80 * commands.length + 50);
       break;
-    case "email":
-      addLine('hello@learnsec101.com...', "color2", 80);
-      // newTab(email);
       break;
     case "clear":
       setTimeout(function() {
@@ -139,6 +170,10 @@ function commander(cmd) {
     case "github":
       addLine("Opening GitHub...", "color2", 0);
       newTab(github);
+      break;
+      case "showcase":
+        addLine("Opening Images...", "color2", 0);
+        newTab(showcase);
       break;
     default:
       addLine("<span class=\"inherit\">Command not found. To list all commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);

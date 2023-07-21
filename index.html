@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- If you came here for the CTF then you must look for "terminal.html" and from there
+the real journey starts and yes page source is always important -->
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio</title>
+  <title>My Portfolio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family= Indie+Flower:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,16 +25,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    I USED THIS TEMPLATE JUST FOR THE BASE AND ALL OTHER CHANGES ARE CONFIGURED BY ME.
-
-  * Template Name: Personal
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 
 </head>
 
@@ -59,8 +52,10 @@
 
       <div class="social-links">
         <a href="https://www.linkedin.com/in/kashish-charaya-/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/KashishOO7/" class="linkedin" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://medium.com/@kashishcharaya" class="linkedin" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="https://notes.learnsec101.com/untitled/welcome/intro" class="linkedin" target="_blank"><i class="bi bi-file-earmark-code"></i></a>        
       </div>
-
     </div>
   </header><!-- End Header -->
 
@@ -72,7 +67,7 @@
 
       <div class="section-title">
         <h2>About</h2>
-        <p>Learn more about me</p>
+        <p>A little about me</p>
       </div>
 
       <div class="row">
@@ -83,19 +78,20 @@
           <h3>A security researcher interested in purple team</h3>
           <p class="fst-italic">
             I have just created this website to showcase my projects, skills, and certificates. 
-            And to prove my ability to be an ideal fit for the purple team, DFIR, or any other jobs 
+            And to prove my ability to be an ideal fit for the <span style="color: rgb(98, 8, 177);">purple team</span>, <span style="color: rgb(82, 233, 11);">DFIR</span>, or any other jobs 
             related 
-            to my field of interest. I would be honored to contribute to your company's cybersecurity 
+            to my field of interest. I am also intersested in and learning about <span style="color: rgb(82, 233, 11);">aerospace cybersecurity</span>
+            I would be honored to contribute to your company's cybersecurity 
             efforts.
           </p>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Medium Blog:</strong> <span><a href=https://medium.com/@kashishcharaya target="_blank">Infosec Blog</a></span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>GitBook:</strong> <span><a href=https://notes.learnsec101.com/untitled/welcome/intro target="_blank">My Notes Respository</a></span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong></strong> <span><a href= target="_blank"></a></span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong></strong> <span><a href= target="_blank"></a></span></li>
               </ul>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -172,8 +168,8 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>My Works</p>
+        <h2>My work</h2>
+        <p></p>
       </div>
 
       <div class="row">
@@ -339,7 +335,7 @@
 
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Contact Me</p>
+        <p><br></p>
       </div>
 
       <div class="row mt-2">
@@ -366,7 +362,30 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>Email Me</h3>
-            <p>hello@learnsec101.com</p>
+            <p>hello@learnsec101.com<a href="#" class="copy-link"> Copy</a></p>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+              const copyLinks = document.querySelectorAll('.copy-link');
+
+        copyLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const textToCopy = this.previousSibling.textContent;
+
+          navigator.clipboard.writeText(textToCopy)
+            .then(function() {
+              link.classList.add('clicked');
+              setTimeout(function() {
+                link.classList.remove('clicked');
+              }, 1000);
+            })
+            .catch(function(err) {
+              console.error('Failed to copy text: ', err);
+            });
+        });
+      });
+    });
+            </script>
           </div>
         </div>
       </div>
@@ -382,27 +401,20 @@
 
       <div class="section-title">
         <h2>Just a terminal</h2>
-        <p>Interact with it to know more</p>
+        <p>Interact with it to know more / A mini CTF</p>
       </div>
+      <!-- <iframe src="assets\web terminal\terminal.html" frameborder="0" width="100%" height="100%"></iframe> -->
       <div style="display: flex; flex-direction: column; height: 600px;">
         <iframe src="assets\web terminal\terminal.html" frameborder="0" style="flex: 1 1 0%;"></iframe>
       </div>
     </div>
   </section>
-
-  <!-- ======= Ask Me ======= -->
-
+    <!-- ======= Ask Me ======= -->
+    
     <div class="credits">
-      Redesigned and Customized with &hearts; by Kashish Charaya
-
-      <!-- I USED THIS TEMPLATE JUST FOR THE BASE AND ALL OTHER CHANGES ARE CONFIGURED BY ME. -->
-
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
+      Redesigned and Customized with <span style="color: rgb(247, 3, 3);">&hearts;</span> by Kashish Charaya
       <span style="margin-left: 10px; margin-right: 10px;">|</span>
-      Base Template by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Basic Structure of the Template by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div> 
 
   <!-- Vendor JS Files -->
@@ -420,3 +432,13 @@
 </body>
 
 </html>
+
+  <!-- =======================================================
+  I USED THIS TEMPLATE JUST FOR THE STRUCTURED BASE AND ALL OTHER CHANGES ARE CONFIGURED BY ME.
+
+  * Template Name: Personal
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
