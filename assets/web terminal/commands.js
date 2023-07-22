@@ -75,7 +75,7 @@ howis = [
 
 hints = [
   "<br>",
-  "Important stuff: name, numbers, addition(name, numbers(numbers))",
+  "Important stuff: name, numbers, addition(name, numbers(+numbers))",
   "Once I saw sam hacking 3 intergalactic highly secured website in a bar just by",
   "examining the page source. Really? Who tf can do that?",
   "<br>"
