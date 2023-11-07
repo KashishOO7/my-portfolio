@@ -46,13 +46,27 @@ ctf = [
   "<br>",
   '<span class="command">whatis</span>         About this CTF?',
   '<span class="command">howis</span>          How to play?',
-  '<span class="command">questions</span>      Listing Challenges',
-  '<span class="command">hints</span>          Some hints',
-  '<span class="command">showcase</span>       Images for question 2 & 3',
+  '<span class="command">levels</span>         Depth of this CTF?',
   "<br>",
 ];
 
-questions = [
+levels = [
+  "<br>",
+  '<span class="command">level1</span>          Noob Level stuff',
+  '<span class="command">level2</span>          Experienced level stuff',
+  '<span class="command">level3</span>          Some Hard level shit',
+  "<br>"
+]
+
+level1 = [
+  "<br>",
+  "----------An intergalactic marriage----------",
+  '<span class="command">hints1</span>         Some hints',
+  '<span class="command">ql1</span>            Listing Challenges',
+  '<span class="command">showcase</span>       Images for question 2 & 3',
+  "<br>",
+]
+ql1 = [
   "<br>",
   '<span class="command">que1</span>           help, I forgot!!',
   '<span class="command">que2</span>           thoughts I have been recalling!',
@@ -62,9 +76,16 @@ questions = [
 
 whatis = [
   "<br>",
-  "It's a mini CTF based around encryption, Steganography, (adding more)",
+  "It's a mini CTF based around encryption, Steganography, cryptography, etc...",
   "<br>"
 ];
+
+music = [
+  "<br>",
+  "If you get irritated or distracted by the music then just mute this tab",
+  "It's Mr. Robot series's music",
+  "<br>"
+]
 
 howis = [
   "<br>",
@@ -73,7 +94,7 @@ howis = [
   "<br>"
 ];
 
-hints = [
+hints1 = [
   "<br>",
   "Important stuff: name, numbers, addition(name, numbers(+numbers))",
   "Once I saw sam hacking 3 intergalactic highly secured website in a bar just by",
@@ -108,8 +129,31 @@ que3 = [
   "<br>"
 ];
 
+level2 = [
+  "<br>",
+  "----------Lost Crypto Art Gallery----------",
+  '<span class="command">hints2</span>         Some hints',
+  '<span class="command">ql2</span>            Listing Challenges',
+  '<span class="command">gallery</span>        The crypto art gallery',
+  "<br>",
+];
+
+ql2 = [
+  "<br>",
+  "under construction",
+  "<br>",
+];
+
+que4 = [
+  "<br>",
+  "Que-4: Sam called her wife to share his happiness but her voice was distorted, perhaps",
+  "something is wrong. Help him understand what's wrong.",
+  "<br>"
+];
+
 help = [
   "<br>",
+  '<span class="command">music</span>          Stop Music/Know about music',
   '<span class="command">whois</span>          Who is Kashish?',
   '<span class="command">whoami</span>         Who are you?',
   '<span class="command">social</span>         Display available socials',

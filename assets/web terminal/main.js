@@ -116,8 +116,20 @@ function commander(cmd) {
       case "howis":
       loopLines(howis, "color2 margin", 80);
       break;
-      case "hints":
-      loopLines(hints, "color2 margin", 80);
+      case "hints1":
+      loopLines(hints1, "color2 margin", 80);
+      break;
+      case "levels":
+      loopLines(levels, "color2 margin", 80);
+      break;
+      case "level1":
+      loopLines(level1, "color2 margin", 80);
+      break;
+      case "level2":
+      loopLines(level2, "color2 margin", 80);
+      break;
+      case "level3":
+      loopLines(level3, "color2 margin", 80);
       break;
       case "que1":
       loopLines(que1, "color2 margin", 80);
@@ -128,8 +140,23 @@ function commander(cmd) {
       case "que3":
       loopLines(que3, "color2 margin", 80);
       break;
-      case "questions":
-      loopLines(questions, "color2 margin", 80);
+      case "ql1":
+      loopLines(ql1, "color2 margin", 80);
+      break;
+      case "ql2":
+      loopLines(ql2, "color2 margin", 80);
+      break;
+      case "que4":
+      loopLines(que4, "color2 margin", 80);
+      break;
+      case "que5":
+      loopLines(que5, "color2 margin", 80);
+      break;
+      case "que6":
+      loopLines(que6, "color2 margin", 80);
+      break;
+      case "music":
+      loopLines(music, "color2 margin", 80);
       break;
     case "social":
       loopLines(social, "color2 margin", 80);
@@ -171,10 +198,10 @@ function commander(cmd) {
       addLine("Opening GitHub...", "color2", 0);
       newTab(github);
       break;
-      case "showcase":
-        addLine("Opening Images...", "color2", 0);
-        newTab(showcase);
-      break;
+    case "showcase":
+      addLine("Opening Images...", "color2", 0);
+      newTab(showcase);
+    break;
     default:
       addLine("<span class=\"inherit\">Command not found. To list all commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
       break;

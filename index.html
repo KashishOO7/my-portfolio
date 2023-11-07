@@ -2,13 +2,13 @@
 <html lang="en">
 
 <!-- If you came here for the CTF then you must look for "terminal.html" and from there
-the real journey starts and yes page source is always important -->
+the real journey begins and yes page source is always important -->
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>My Portfolio</title>
+  <title>A Portfolio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -31,13 +31,61 @@ the real journey starts and yes page source is always important -->
 <body>
   <iframe src="matrix.html" frameborder="0" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     <div class="content">
+      <audio id="audioPlayer" autoplay loop>
+        <source src="/assets/web terminal/robot.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+      var audio = document.getElementById('audioPlayer');      
+      audio.volume = 0.2;
+  </script>
 
   <!-- ======= Header ======= -->
   <header id="header">
-    <div class="container">
+    <div class="container">    
+      <h1 data-value="Kashish Charaya" id="myHeading" style="
 
-      <h1><a href="index.html">Kashish Charaya</a></h1>
-      <h2>A passionate <span>Security Researcher</span> from India</h2>
+        color: rgb(190, 179, 179);
+        padding: 0rem clamp(1rem, 22vw, 3rem);
+        border-radius: clamp(0.4rem, 0.75vw, 1rem);">Kashish Charaya</h1>
+
+    <script>
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let interval = null;
+
+        // Select the specific h1 element by its id
+        const myHeading = document.getElementById('myHeading');
+
+        myHeading.onmouseover = event => {
+            let iteration = 0;
+
+            clearInterval(interval);
+
+            interval = setInterval(() => {
+                event.target.innerText = event.target.innerText
+                    .split("")
+                    .map((letter, index) => {
+                        if (index < iteration) {
+                            return event.target.dataset.value[index];
+                        }
+
+                        return letters[Math.floor(Math.random() * 26)];
+                    })
+                    .join("");
+
+                if (iteration >= event.target.dataset.value.length) {
+                    clearInterval(interval);
+                }
+
+                iteration += 1 / 3;
+            }, 30);
+        }
+
+        myHeading.onmouseout = event => {
+            event.target.innerText = event.target.dataset.value;
+        }
+    </script>
+    <h2>A passionate <span>Security Researcher</span> from India</h2>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -71,27 +119,17 @@ the real journey starts and yes page source is always important -->
       </div>
 
       <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/1.jpg" class="img-fluid" alt="">
-        </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>A security researcher interested in purple team</h3>
+          <h3>A self-proclaimed scientific researcher.</h3>
           <p class="fst-italic">
             I have just created this website to showcase my projects, skills, and certificates. 
-            And to prove my ability to be an ideal fit for the <span style="color: rgb(98, 8, 177);">purple team</span>, <span style="color: rgb(82, 233, 11);">DFIR</span>, or any other jobs 
+            And to prove my ability to be an ideal fit for the <span style="color: rgb(98, 8, 177);">Purple Team</span>, <span style="color: rgb(82, 233, 11);">DFIR</span>, or any other jobs 
             related 
-            to my field of interest. I am also intersested in and learning about <span style="color: rgb(82, 233, 11);">aerospace cybersecurity</span>
+            to my field of interest. I am also intersested in <span style="color: rgb(82, 233, 11);">Aerospace Cybersecurity.</span>
             I would be honored to contribute to your company's cybersecurity 
             efforts.
           </p>
-          <!-- <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong></strong> <span><a href= target="_blank"></a></span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong></strong> <span><a href= target="_blank"></a></span></li>
-              </ul>
-            </div>
-          </div> -->
+        
         </div>
       </div>
 
@@ -108,17 +146,16 @@ the real journey starts and yes page source is always important -->
       <div class="row skills-content">
 
         <div class="col-lg-4">
-
           <div class="progress">
-            <span class="skill">Python</span>
+            <span class="skill" style="font-size: 24px;">Python <a href=" " target="_blank" style="color: inherit;"><i class="bi bi-folder2-open"></i></a></span>
           </div>
 
           <div class="progress">
-            <span class="skill">Bash scripting</span>
+            <span class="skill" style="font-size: 24px;">Bash Scripting <i class="bi bi-folder2-open"></i></span>
           </div>
 
           <div class="progress">
-            <span class="skill">Frontend stack</span>
+            <span class="skill" style="font-size: 24px;">Frontend Stack <i class="bi bi-folder2-open"></i></span>
           </div>
 
         </div>
@@ -126,15 +163,15 @@ the real journey starts and yes page source is always important -->
         <div class="col-lg-4">
 
           <div class="progress">
-            <span class="skill">Computer Networking</span>
+            <span class="skill" style="font-size: 24px;">Computer Networking <i class="bi bi-folder2-open"></i></span>
           </div>
 
           <div class="progress">
-            <span class="skill">OWASP Top 10</span>
+            <span class="skill" style="font-size: 24px;">OWASP Top 10 <i class="bi bi-folder2-open"></i></span>
           </div>
 
           <div class="progress">
-            <span class="skill">Manual and Automated web testing</span>
+            <span class="skill" style="font-size: 24px;">Manual and Automated web testing <i class="bi bi-folder2-open"></i></span>
             
           </div>
 
@@ -143,15 +180,17 @@ the real journey starts and yes page source is always important -->
         <div class="col-lg-4">
 
           <div class="progress">
-            <span class="skill">Vulnerability Scanning</span>
+            <span class="skill" style="font-size: 24px;">Vulnerability Scanning <i class="bi bi-folder2-open"></i></span>
+            
           </div>
 
           <div class="progress">
-            <span class="skill">DFIR</span>
+            <span class="skill" style="font-size: 24px;">DFIR <i class="bi bi-folder2-open"></i></span>
           </div>
 
           <div class="progress">
-            <span class="skill">Malware Analysis</span>
+            <span class="skill" style="font-size: 24px;">Malware Analysis <i class="bi bi-folder2-open"></i></span>
+            
           </div>
 
         </div>
@@ -159,6 +198,7 @@ the real journey starts and yes page source is always important -->
       </div>
 
     </div>
+  </div>
     <!-- End Skills -->
 
   </section>
@@ -351,7 +391,7 @@ the real journey starts and yes page source is always important -->
         <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
+            <h3>Socials</h3>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/kashish-charaya-/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
             </div>
@@ -403,10 +443,10 @@ the real journey starts and yes page source is always important -->
         <h2>Just a terminal</h2>
         <p>Interact with it to know more / A mini CTF</p>
       </div>
-      <!-- <iframe src="assets\web terminal\terminal.html" frameborder="0" width="100%" height="100%"></iframe> -->
+      <pre>
       <div style="display: flex; flex-direction: column; height: 600px;">
         <iframe src="assets\web terminal\terminal.html" frameborder="0" style="flex: 1 1 0%;"></iframe>
-      </div>
+      </div></pre>
     </div>
   </section>
     <!-- ======= Ask Me ======= -->
@@ -414,7 +454,7 @@ the real journey starts and yes page source is always important -->
     <div class="credits">
       Redesigned and Customized with <span style="color: rgb(247, 3, 3);">&hearts;</span> by Kashish Charaya
       <span style="margin-left: 10px; margin-right: 10px;">|</span>
-      Basic Structure of the Template by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Basic Structure of the Template by <a href="https://bootstrapmade.com/demo/Personal/" target="_blank">BootstrapMade</a>
     </div> 
 
   <!-- Vendor JS Files -->
