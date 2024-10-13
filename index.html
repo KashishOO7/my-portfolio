@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- If you came here for the CTF then you must look for "terminal.html" and from there
-the real journey begins and yes page source is always important -->
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>A Portfolio</title>
+  <title>The Portfolio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
-  <!-- Google Fonts -->
+  
   <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
-
 <body>
   <iframe src="matrix.html" frameborder="0" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     <div class="content">
@@ -39,8 +30,351 @@ the real journey begins and yes page source is always important -->
       var audio = document.getElementById('audioPlayer');      
       audio.volume = 0.2;
   </script>
+<section id="about" class="about">
+  <div id="threejs-container"></div>
+   <div id="about-me-container">
+    <h2 class="globe-title">About Me</h2>
+    <p class="globe-text">
+      I'm a multi-disciplinary scientific researcher deeply focused on security, innovation, and un-touched technology. 
+      Passionate about building solutions that bridge the gap between security and research. Exploring the unknown, 
+      one problem at a time.
+    </p>
+  </div>
 
-  <!-- ======= Header ======= -->
+  <div id="faq-container">
+    <h2 class="faq-title">FAQ</h2>
+    <p class="faq-text">Explore how to interact with the globe of knowledge:</p>
+    <ul class="faq-list">
+        <li>Click on labels to explore related content.</li>
+        <li>Hover to zoom on labels.</li>
+        <li>Click on the globe to pause/resume rotation.</li>
+        <li>Use the search box to find specific labels.</li>
+        <li>Rest figure out yourself.</li>
+    </ul>
+</div>
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Search..." />
+  <button id="search-button">Search</button>
+</div>
+</section>
+
+<style>
+  #about-me-container {
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  width: 300px; 
+  max-height: 500px; 
+  overflow-y: auto; 
+  text-align: left; 
+}
+
+.globe-title {
+  font-size: 36px;
+  color: #00ff00;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  text-align: center, underline;
+  font-size: 50px;
+}
+
+.globe-text {
+  
+  text-align: left;
+  margin: 0 auto;
+  font-size: 23px;
+  line-height: 1.6;
+  color: #ffffff;
+
+}
+.globe-text:hover {
+  color: #00ff00;
+  transition: color 0.5s ease;
+}
+#faq-container {
+  position: fixed;
+  top: 20%;
+  right: 5%;
+  width: 300px;
+  max-height: 300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 23px;
+  z-index: 11;
+}
+.faq-text:hover {
+  color: #00ff00;
+  transition: color 0.5s ease;
+}
+.faq-title {
+  color: #00ff00;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.faq-list:hover {
+  color: #00ff00;
+  transition: color 0.5s ease;
+  margin: auto;
+}
+
+  #search-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  .black-bg {
+  background-color: black;
+  color: white;
+}
+.askme .container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.askme iframe {
+  width: 100%;
+  height: 100%;
+}
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  #about-me-container, #faq-container {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin: 20px 0;
+    padding: 0 20px;
+    transform: none;
+    overflow-y: visible;
+  }
+
+  .globe-title, .faq-title {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .globe-text, .faq-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  #search-container {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    transform: none;
+  }
+
+  .askme .container {
+    height: auto;
+  }
+
+  .askme iframe {
+    height: 300px;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  #globe-container {
+    width: 100%;
+    height: 50vh;
+    margin: 20px 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const labels = [
+    { text: "Python", position: new THREE.Vector3(3.5, 2.5, 2.5), url: "https://github.com/KashishOO7?tab=repositories&q=&type=&language=python" },
+              { text: "Web 2.0 Security", position: new THREE.Vector3(-3, -2, 3), url: "https://notes.learnsec101.com/101/simplified-101/web-application-security" },
+              { text: "AI", position: new THREE.Vector3(3, 1, -2), url: "https://notes.learnsec101.com/101/simplified-101/ai" },
+              { text: "Super User", position: new THREE.Vector3(-2, 3, -3), url: "https://notes.learnsec101.com/101/simplified-101/being-a-superuser-in-digital-world" },
+              { text: "Bug Bounty", position: new THREE.Vector3(-3.5, 0, 3.5), url: "https://notes.learnsec101.com/101/bug-hunting/getting-started" },
+              { text: "Linux", position: new THREE.Vector3(0, -3.5, -3.5), url: "https://notes.learnsec101.com/101/everything-linux/why-linux" },
+              { text: "Malware Analysis", position: new THREE.Vector3(4, -2, -2), url: "https://notes.learnsec101.com/101/simplified-101/everything-malware" },
+              { text: "Research", position: new THREE.Vector3(3, -3, -3), url: "https://notes.learnsec101.com/main/simplified-101/miscellaneous" },
+              { text: "Blockchain", position: new THREE.Vector3(1, 3, -2), url: "https://notes.learnsec101.com/main/simplified-101/blockchain" },
+              { text: "Quantum", position: new THREE.Vector3(0, 1, -4), url: "https://notes.learnsec101.com/main/simplified-101/quantum-computing" },
+              // Commented out labels for future
+              { text: "shell", position: new THREE.Vector3(2.5, 2.5, -2.5), url: "https://github.com/KashishOO7?tab=repositories" },
+              { text: "More", position: new THREE.Vector3(-2.5, 2.5, 2.5), url: "https://notes.learnsec101.com/main/simplified-101/cybersecurity-simplified-to-its-core" },
+              // { text: "Cloud Security", position: new THREE.Vector3(2.5, -2.5, 2.5), url: "" },
+              // { text: "Cryptography", position: new THREE.Vector3(-2.5, -2.5, -2.5), url: "" },
+          ];
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById("threejs-container").appendChild(renderer.domElement);
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.enableZoom = true;
+    controls.minDistance = 6;
+    controls.maxDistance = 20;
+
+    camera.position.set(0, 0, 10);
+    camera.lookAt(scene.position);
+    const geometry = new THREE.SphereGeometry(5, 24, 24);
+    const wireframe = new THREE.WireframeGeometry(geometry);
+    const line = new THREE.LineSegments(wireframe);
+    line.material.depthTest = false;
+    line.material.opacity = 0.5;
+    line.material.transparent = true;
+    line.material.color.setHex(0x00FF00);
+    scene.add(line);
+
+    const ambientLight = new THREE.AmbientLight(0xcccccc);
+    scene.add(ambientLight);
+    const labelGroup = new THREE.Group();
+    scene.add(labelGroup);
+    const clickableObjects = [];
+
+    labels.forEach((label) => {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      context.font = "Bold 32px Arial";
+      context.fillStyle = "white";
+      context.fillText(label.text, 0, 32);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      const material = new THREE.SpriteMaterial({ map: texture });
+      const sprite = new THREE.Sprite(material);
+      sprite.scale.set(3, 1.5, 1);
+      sprite.position.copy(label.position);
+      sprite.userData = { url: label.url };
+
+      clickableObjects.push(sprite);
+      labelGroup.add(sprite);
+      });
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    let autoRotate = true;
+    const autoRotateSpeed = 0.001;
+
+    window.addEventListener("resize", onWindowResize);
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+  
+    let lastTime = 0;
+    const targetFPS = 60;
+    const frameInterval = 1000 / targetFPS;
+    function animate(time) {
+      requestAnimationFrame(animate);
+      const deltaTime = time - lastTime;
+  if (deltaTime > frameInterval) {
+      lastTime = time;
+      if (autoRotate) {
+          line.rotation.y += autoRotateSpeed;
+          labelGroup.rotation.y += autoRotateSpeed;
+      }
+      controls.update();
+  }
+  renderer.render(scene, camera);
+}
+animate();
+    let hoveredObject = null;
+    renderer.domElement.addEventListener("mousemove", (event) => {
+      const rect = renderer.domElement.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(clickableObjects);
+
+      if (intersects.length > 0) {
+        const hoveredSprite = intersects[0].object;
+
+        if (hoveredObject !== hoveredSprite) {
+          if (hoveredObject) {
+            hoveredObject.scale.set(3, 1.5, 1);
+          }
+
+          hoveredSprite.scale.set(4, 2, 1);
+          hoveredObject = hoveredSprite;
+          needsRender = true;
+        }
+      } else if (hoveredObject) {
+        hoveredObject.scale.set(3, 1.5, 1);
+        hoveredObject = null;
+      }
+    });
+    renderer.domElement.addEventListener("click", () => {
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(clickableObjects);
+
+      if (intersects.length > 0) {
+        const clickedObject = intersects[0].object;
+        const userData = clickedObject.userData;
+    if (userData.url) {
+      window.open(userData.url, "_blank");
+    }
+  } else {
+    autoRotate = !autoRotate;
+    needsRender = true;
+  }
+});
+    document.getElementById("search-button").addEventListener("click", searchLabel);
+    function sanitizeInput(input) {
+  return input.replace(/[^a-zA-Z0-9 ]/g, "");
+}
+    function searchLabel() {
+      const searchTerm = sanitizeInput(document.getElementById("search-input").value.toLowerCase());
+      const foundLabel = labels.find((label) => label.text.toLowerCase().includes(searchTerm));
+
+      if (foundLabel) {
+        const targetPosition = foundLabel.position.clone().normalize().multiplyScalar(10);
+        gsap.to(camera.position, {
+          duration: 1,
+          x: targetPosition.x,
+          y: targetPosition.y,
+          z: targetPosition.z,
+          onUpdate: function () {
+            camera.lookAt(scene.position);
+          },
+        });
+        autoRotate = false;
+      } else {
+        alert("Label not found!");
+      }
+    }
+  });
+</script>
   <header id="header">
     <div class="container">    
       <h1 data-value="Kashish Charaya" id="myHeading" style="
@@ -52,8 +386,6 @@ the real journey begins and yes page source is always important -->
     <script>
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
-
-        // Select the specific h1 element by its id
         const myHeading = document.getElementById('myHeading');
 
         myHeading.onmouseover = event => {
@@ -91,285 +423,41 @@ the real journey begins and yes page source is always important -->
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#portfolio">Work</a></li>
+          <li><a class="nav-link" href="#work">Work</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
           <li><a class="nav-link" href="#askme">Ask me</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
       <div class="social-links">
         <a href="https://www.linkedin.com/in/kashish-charaya-/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
         <a href="https://github.com/KashishOO7/" class="linkedin" target="_blank"><i class="bi bi-github"></i></a>
-        <a href="https://medium.com/@kashishcharaya" class="linkedin" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
-        <a href="https://notes.learnsec101.com/untitled/welcome/intro" class="linkedin" target="_blank"><i class="bi bi-file-earmark-code"></i></a>        
+        <a href="https://blog.learnsec101.com/" class="linkedin" target="_blank"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="https://notes.learnsec101.com/main" class="linkedin" target="_blank"><i class="bi bi-file-earmark-code"></i></a>        
       </div>
     </div>
-  </header><!-- End Header -->
+  </header>
 
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>A little about me</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>A self-proclaimed scientific researcher.</h3>
-          <p class="fst-italic">
-            I have just created this website to showcase my projects, skills, and certificates. 
-            And to prove my ability to be an ideal fit for the <span style="color: rgb(98, 8, 177);">Purple Team</span>, <span style="color: rgb(82, 233, 11);">DFIR</span>, or any other jobs 
-            related 
-            to my field of interest. I am also intersested in <span style="color: rgb(82, 233, 11);">Aerospace Cybersecurity.</span>
-            I would be honored to contribute to your company's cybersecurity 
-            efforts.
-          </p>
-        
-        </div>
-      </div>
-
+  <!-- <div id="work" class="work">
+    <h2 class="section-title">My Personal Branding</h2>
+    <div class="branding-content">
+        <p class="intro-text">
+            Welcome to <strong>LearnSec101</strong>, your go-to platform for learning about security, privacy, and technology. 
+            Here, I share my knowledge to help people learn and grow in the cybersecurity space. 
+            Explore my <a href="https://notes.learnsec101.com" target="_blank">notes</a> and <a href="https://blog.learnsec101.com" target="_blank">blog</a> 
+            to dive deep into curated content and tutorials, all accessible via my subdomains.
+        </p>
+        <p class="additional-text">
+            My aim is to build a community of learners. Whether you're a beginner or an expert, LearnSec101 has something for everyone. 
+            Stay tuned as I continuously update it with fresh insights and resources.
+        </p>
     </div>
-    <!-- End About Me -->
+</div> -->
 
-    <!-- ======= Skills  ======= -->
-    <div class="skills container">
 
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="row skills-content">
-
-        <div class="col-lg-4">
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Python <a href=" " target="_blank" style="color: inherit;"><i class="bi bi-folder2-open"></i></a></span>
-          </div>
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Bash Scripting <i class="bi bi-folder2-open"></i></span>
-          </div>
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Frontend Stack <i class="bi bi-folder2-open"></i></span>
-          </div>
-
-        </div>
-
-        <div class="col-lg-4">
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Computer Networking <i class="bi bi-folder2-open"></i></span>
-          </div>
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">OWASP Top 10 <i class="bi bi-folder2-open"></i></span>
-          </div>
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Manual and Automated web testing <i class="bi bi-folder2-open"></i></span>
-            
-          </div>
-
-        </div>
-
-        <div class="col-lg-4">
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Vulnerability Scanning <i class="bi bi-folder2-open"></i></span>
-            
-          </div>
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">DFIR <i class="bi bi-folder2-open"></i></span>
-          </div>
-
-          <div class="progress">
-            <span class="skill" style="font-size: 24px;">Malware Analysis <i class="bi bi-folder2-open"></i></span>
-            
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
   </div>
-    <!-- End Skills -->
-
-  </section>
-
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>My work</h2>
-        <p></p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">Projects</li>
-            <li data-filter=".filter-card">Blogs</li>
-            <li data-filter=".filter-web">Posts</li>
-            <li data-filter=".filter-certs">Certificates</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/projects/psswdman.webp" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Project</h4>
-              <p>Project</p>
-              <div class="portfolio-links">
-                <a href="assets/img/projects/psswdman.webp" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                <a href="https://github.com/KashishOO7/Password-Manager-in-python" target="_blank" title="Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/posts/ss1.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Posts</h4>
-              <p>Post</p>
-              <div class="portfolio-links">
-                <a href="assets/img/posts/ss1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                <a href="https://www.linkedin.com/posts/kashish-charaya-_scams-activity-7059440753244090368-b_h1" target="_blank" title="Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/projects/backup.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Project</h4>
-              <p>Project</p>
-              <div class="portfolio-links">
-                <a href="assets/img/projects/backup.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                <a href="https://github.com/KashishOO7/Automated-Backup-Script" target="_blank" title="Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Certications-->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-certs">
-          <div class="portfolio-wrap">
-            <img src="assets/certs/CAP.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Certificate</h4>
-              <p>Certificate</p>
-              <div class="portfolio-links">
-                <a href="assets/certs/CAP.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-certs">
-          <div class="portfolio-wrap">
-            <img src="assets/certs/CNSP.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Certificate</h4>
-              <p>Certificate</p>
-              <div class="portfolio-links">
-                <a href="assets/certs/CNSP.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-certs">
-          <div class="portfolio-wrap">
-            <img src="assets/certs/jr pen.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Certificate</h4>
-              <p>Certificate</p>
-              <div class="portfolio-links">
-                <a href="assets/certs/jr pen.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-certs">
-          <div class="portfolio-wrap">
-            <img src="assets/certs/TCM 1.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Certificate</h4>
-              <p>Certificate</p>
-              <div class="portfolio-links">
-                <a href="assets/certs/TCM 1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/blogs/roadmap1.webp" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Blog</h4>
-              <p>Blog</p>
-              <div class="portfolio-links">
-                <a href="assets/img/blogs/roadmap1.webp" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                <a href="https://medium.com/@kashishcharaya/become-a-cyber-security-researcher-for-free-and-earn-a-living-2023-edition-46ad8e00bdd2" target="_blank" title="Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/blogs/gif1.gif" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Blog</h4>
-              <p>Blog</p>
-              <div class="portfolio-links">
-                <a href="assets/img/blogs/gif1.gif" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                <a href="https://medium.com/@kashishcharaya/the-most-stupid-ways-to-get-hacked-3fa76967b1cc" target="_blank" title="Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/blogs/stay_safe.webp" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Blog</h4>
-              <p>Blog</p>
-              <div class="portfolio-links">
-                <a href="assets/img/blogs/stay_safe.webp" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                <a href="https://medium.com/@kashishcharaya/ways-to-stay-safe-and-anonymous-on-the-internet-best-practices-928beafda4f" target="_blank" title="Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-  <!-- End Portfolio Section -->
-
-  <!-- ======= Contact Section ======= -->
+</section>
   <section id="contact" class="contact">
     <div class="container">
 
@@ -432,53 +520,19 @@ the real journey begins and yes page source is always important -->
 
     </div>
   </section>
-  <!-- End Contact Section -->
-
-  <!-- Ask me-->
-
   <section id="askme" class="askme">
     <div class="container">
 
       <div class="section-title">
         <h2>Just a terminal</h2>
-        <p>Interact with it to know more / A mini CTF</p>
+        <p>Interact with it to know more</p>
       </div>
       <pre>
-      <div style="display: flex; flex-direction: column; height: 600px;">
-        <iframe src="assets\web terminal\terminal.html" frameborder="0" style="flex: 1 1 0%;"></iframe>
+      <div style="display: flex; flex-direction: column; height: 600px; ">
+        <iframe src="assets\web terminal\terminal.html" frameborder="0" style="flex: 1 1 0%; "></iframe>
       </div></pre>
     </div>
   </section>
-    <!-- ======= Ask Me ======= -->
-    
-    <div class="credits">
-      Redesigned and Customized with <span style="color: rgb(247, 3, 3);">&hearts;</span> by Kashish Charaya
-      <span style="margin-left: 10px; margin-right: 10px;">|</span>
-      Basic Structure of the Template by <a href="https://bootstrapmade.com/demo/Personal/" target="_blank">BootstrapMade</a>
-    </div> 
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
-
-  <!-- =======================================================
-  I USED THIS TEMPLATE JUST FOR THE STRUCTURED BASE AND ALL OTHER CHANGES ARE CONFIGURED BY ME.
-
-  * Template Name: Personal
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
