@@ -109,7 +109,4 @@
       }
     }
   });
-
-  new PureCounter();
-
 })()

@@ -9,6 +9,12 @@ var pw = false;
 let pwd = false;
 var commands = [];
 
+function sanitizeInput(input) {
+  const div = document.createElement("div");
+  div.textContent = input;
+  return div.innerHTML;
+}
+
 setTimeout(function() {
   loopLines(banner, "", 80);
   textarea.focus();
@@ -91,10 +97,9 @@ function commander(cmd) {
   const input = cmd.split(' ');
   const command = input[0];
   const argument = input[1];
+  const sanitizedCommand = sanitizeInput(cmd.trim().toLowerCase());
 
-  cmd = cmd.trim().toLowerCase();
-
-  if (cmd.includes("ls -la")) {
+  if (sanitizedCommand.includes("ls -la")) {
     loopLines([
       '  ',
       'drwxr-xr-x  10 guest guest 4096 Oct 12 12:34 .',
@@ -106,7 +111,7 @@ function commander(cmd) {
     return;
   }
 
-  if (cmd.includes("ps aux")) {
+  if (sanitizedCommand.includes("ps aux")) {
     loopLines(['USER       PID %CPU %MEM COMMAND',
       'guest      1337  99.0 100.0 /usr/bin/fun',
       '  ',
@@ -114,7 +119,7 @@ function commander(cmd) {
     return;
   }
 
-  if (cmd.includes("df -h")) {
+  if (sanitizedCommand.includes("df -h")) {
     loopLines([
       '  ',
       'Filesystem      Size  Used Avail Use%',
@@ -125,7 +130,7 @@ function commander(cmd) {
     return;
   }
   
-    if(cmd.includes("uname -a")) {
+    if(sanitizedCommand.includes("uname -a")) {
       loopLines([
         '  ',
         'Linux guest-vm 5.4.0-42-generic #46-Ubuntu',
@@ -135,7 +140,7 @@ function commander(cmd) {
       return;
     }
 
-  if (cmd.includes("rm -rf /")) {
+  if (sanitizedCommand.includes("rm -rf /")) {
     loopLines([
       '  ',
       'Warning: You are about to delete everything!',
@@ -338,10 +343,17 @@ function commander(cmd) {
   }
 }
 
+function isTrustedDomain(url) {
+  const trustedDomains = ["https://youtu.be"];
+  return trustedDomains.some((domain) => url.startsWith(domain));
+}
+
 function newTab(link) {
-  setTimeout(function() {
-    window.open(link, "_blank");
-  }, 500);
+  if (isTrustedDomain(link)) {
+    setTimeout(() => window.open(link, "_blank"), 500);
+  } else {
+    addLine("Invalid or untrusted link!", "error", 100);
+  }
 }
 
 function addLine(text, style, time) {
